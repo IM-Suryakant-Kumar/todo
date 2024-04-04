@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 import { Delete } from "@mui/icons-material";
 import { Checkbox, IconButton, Paper, Typography } from "@mui/material";
 
-const Task = ({ content, isCompleted }) => {
-
+const Task = ({ id, content, isCompleted }) => {
 	return (
 		<Paper variant="outlined" sx={{ display: "flex", alignItems: "center" }}>
 			<Checkbox checked={isCompleted} />
@@ -20,6 +19,7 @@ const Task = ({ content, isCompleted }) => {
 };
 
 Task.propTypes = {
+	id: PropTypes.number,
 	content: PropTypes.string,
 	isCompleted: PropTypes.bool,
 };

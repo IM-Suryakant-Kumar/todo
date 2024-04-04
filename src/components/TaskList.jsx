@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
 import { Task } from ".";
+import { useSelector } from "react-redux";
 
 const TaskList = () => {
-	// const []
+	const tasks = useSelector(state => state.task.tasks);
 
 	return (
 		<Box
@@ -14,10 +15,11 @@ const TaskList = () => {
 				gap: "1em",
 			}}>
 			{/* lists */}
-			{Array(5)
-				.fill(null)
-				.map((_, idx) => (
-					<Task key={idx} content="Hello" isCompleted={idx === 0 ? true : false} />
+			{tasks
+				?.slice()
+				.reverse()
+				.map((t, idx) => (
+					<Task key={idx} id={t.id} content={t.content} isCompleted={t.isCompleted} />
 				))}
 		</Box>
 	);
