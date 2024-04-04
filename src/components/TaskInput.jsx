@@ -1,13 +1,15 @@
 import { Button, Stack, TextField } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTask } from "../features/reducers";
 
 const TaskInput = () => {
-	const [task, setTask] = useState("");
+  const dispatch = useDispatch()
+	const [content, setNewContent] = useState("");
 
 	const handleButton = () => {
-		console.log(task);
-
-		setTask("");
+		dispatch(addTask(content))
+		setNewContent("");
 	};
 
 	return (
@@ -20,15 +22,15 @@ const TaskInput = () => {
 				label="Add Task"
 				name="task"
 				variant="standard"
-				value={task}
-				onChange={e => setTask(e.target.value)}
+				value={content}
+				onChange={e => setNewContent(e.target.value)}
 			/>
 			{/* Add Button */}
 			<Button
 				variant="contained"
 				color="secondary"
 				sx={{ width: "5rem" }}
-				disabled={!task}
+				disabled={!content}
 				onClick={handleButton}>
 				Add
 			</Button>

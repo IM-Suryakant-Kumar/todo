@@ -18,8 +18,8 @@ const TaskList = () => {
 			{tasks
 				?.slice()
 				.reverse()
-				.map((t, idx) => (
-					<Task key={idx} id={t.id} content={t.content} isCompleted={t.isCompleted} />
+				.map((t) => (
+					<Task key={t.id} id={t.id} content={t.content} isCompleted={t.isCompleted} />
 				))}
 		</Box>
 	);
