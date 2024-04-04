@@ -1,5 +1,5 @@
 import { Stack } from "@mui/material";
-import { Header, TaskInput } from "./components";
+import { Header, TaskInput, TaskList } from "./components";
 
 function App() {
 	return (
@@ -9,6 +9,7 @@ function App() {
 			{/* TaskInput */}
 			<TaskInput />
 			{/* TaskList */}
+			<TaskList />
 		</Stack>
 	);
 }
